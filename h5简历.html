@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="reset.min.css">
+    <link rel="stylesheet" href="swiper.min.css">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="main">
+    <div class="music">
+        <audio src="audio/o_1aiq3geav8t3jj31iin5r010na4d.mp3"></audio>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide page1">
+                <img src="images/bg2.png" alt="">
+                <img src="images/pic1.png" alt="">
+                <h1 class="title">个人简历</h1>
+            </div>
+            <div class="swiper-slide page2">
+                <img src="images/bg2.png" alt="">
+                <img src="images/m2e.png" alt="">
+                <img src="images/1v0ad.png" alt="">
+                <h2 class="title">基本信息</h2>
+                <ul class="list">
+                    <li>姓名:马素妮</li>
+                    <li>性别：女</li>
+                    <li>坐标：北京</li>
+                    <li>学历：大专</li>
+                    <li>毕业院校：西航</li>
+                    <li>工作经验：2年</li>
+                </ul>
+            </div>
+            <div class="swiper-slide page3">
+                <img src="images/bg2.png" alt="">
+                <img src="images/pa21.png" alt="">
+                <img src="images/pa211.png" alt="">
+                <img src="images/pa212.png" alt="">
+                <img src="images/pa213.png" alt="">
+                <img src="images/pa214.png" alt="">
+                <img src="images/s3.png" alt="">
+                <img src="images/s2.png" alt="">
+                <h2 class="title">专业技能</h2>
+                <span class="span1">HTML</span>
+                <span class="span2">CSS</span>
+                <span class="span3">JS</span>
+                <span class="span4">Vue</span>
+                <span class="span5">Node</span>
+            </div>
+        </div>
+    </div>
+    <div class="arrow"></div>
+
+</div>
+<script type="text/javascript" src="swiper.min.js"></script>
+<script type="text/javascript">
+    function refreshRem() {
+        var dewS=750,
+            winW=document.documentElement.clientWidth;
+        radio=winW/dewS;
+        document.documentElement.style.fontSize=radio*100+"px";
+    }
+    refreshRem();
+    window.addEventListener("resize",refreshRem,false);
+ var  mySwiper=new Swiper(".swiper-container",{
+     loop:true,
+     direction: 'vertical',
+     onSlideChangeEnd:function (swiper){
+        var slides=swiper.slides;
+        var curIndex=swiper.activeIndex;
+        var targetId="page0";
+        switch (curIndex){
+            case 4:
+                targetId+=1;
+                break;
+            case 0:
+                targetId+=3;
+                break;
+            default:
+                targetId+=curIndex;
+        }
+
+        [].forEach.call(slides,function (item,index) {
+            if(curIndex==index){
+                item.id=targetId;
+            }else {
+                item.id=null;
+            }
+        })
+     }
+ })
+
+
+
+</script>
+</body>
+</html>
